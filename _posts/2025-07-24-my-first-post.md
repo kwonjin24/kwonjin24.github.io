@@ -2,6 +2,7 @@
 layout: post
 title: "나의 첫 번째 블로그 글"
 date: 2025-07-24 16:50:00 +0900
+category: Python
 ---
 
 # 드디어 첫 글을 작성합니다!
