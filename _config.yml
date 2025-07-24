@@ -1,3 +1,20 @@
-theme: jekyll-theme-minimal
-title: kwonjin24님의 블로그
-description: 개발 이야기와 생각을 기록합니다.
+# _config.yml 파일에 이 내용을 붙여넣으세요.
+
+# Just the Docs 테마를 사용하도록 설정합니다.
+remote_theme: just-the-docs/just-the-docs
+
+# 블로그의 제목과 설명을 설정합니다.
+title: kwonjin24의 학습 노트
+description: 프로그래밍과 다양한 주제에 대해 공부한 내용을 기록합니다.
+
+# (선택사항) 테마 색상 설정 (예: dark, light, custom)
+color_scheme: light
+
+# (선택사항) 검색 기능 활성화
+search_enabled: true
+
+# (선택사항) 페이지 맨 아래에 'GitHub에서 수정' 링크 표시
+gh_edit_link: true
+gh_edit_link_text: "GitHub에서 이 페이지 수정하기"
+gh_edit_repository: "kwonjin24/kwonjin24.github.io"
+gh_edit_branch: "main"
