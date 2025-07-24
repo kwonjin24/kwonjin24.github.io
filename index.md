@@ -1,6 +1,7 @@
 ---
 layout: home
 title: Home
+nav_order: 1
 ---
 
 # kwonjin24의 학습 노트에 오신 것을 환영합니다!
