@@ -2,10 +2,22 @@
 layout: default
 ---
 
+<h2>📂 카테고리</h2>
+<ul>
+  {% for category in site.categories %}
+    <li>
+      <a href="/category/{{ category | first | downcase }}.html">{{ category | first }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<hr>
+
+<h2>📝 최신 글</h2>
 <ul>
   {% for post in site.posts %}
     <li>
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
       <span>{{ post.date | date: "%Y년 %m월 %d일" }}</span>
     </li>
   {% endfor %}
