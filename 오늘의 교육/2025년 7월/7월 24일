@@ -1,0 +1,199 @@
+---
+layout: default
+title: 7월 24일
+parent: 2025년 7월
+nav_order: 24
+---
+
+# 2025년 7월 24일 교육 내용
+
+오늘 배운 내용을 여기에 정리합니다.
+
+앤서블 설정
+ksh001(서버1) 10.10.8.200
+ksh002(서버2) 10.10.8.201
+ksh003(서버3) 10.10.8.202
+ksh004(서버4) 10.10.8.203
+ksh005(서버5) 10.10.8.204
+
+ksh001(서버1)
+ssh-keygen -t rsa
+
+ssh-copy-id ksh001@10.10.8.201
+ssh-copy-id ksh001@10.10.8.202
+ssh-copy-id ksh001@10.10.8.203
+ssh-copy-id ksh001@10.10.8.204
+
+cat /etc/lsb-release
+sudo apt update
+sudo apt install ansible
+
+mkdir ~/ansible-lab
+
+cd ansible-lab/
+sudo apt install ansible-core
+touch ansible.cfg hosts inventory.ini
+
+vi ansible.cfg
+===================================================
+[defaults]
+# 인벤토리 파일 경로를 현재 디렉터리의 hosts 파일로 지정
+inventory = ./hosts
+# 원격 접속 기본 사용자를 ubuntu로 지정
+remote_user = ksh001
+# 처음 접속하는 호스트의 키를 자동으로 신뢰 (실습 환경용)
+host_key_checking = False
+
+[privilege_escalation]
+# 필요시 sudo를 통해 root 권한을 얻도록 설정
+become = true
+become_method = sudo
+become_user = root
+become_ask_pass = false
+===================================================
+
+vi hosts
+===================================================
+[web_servers]
+an-ksh002 ansible_host=10.10.8.201
+an-ksh003 ansible_host=10.10.8.202
+an-ksh004 ansible_host=10.10.8.203
+an-ksh005 ansible_host=10.10.8.204
+
+[control_node]
+an-ksh001 ansible_host=10.10.8.200 ansible_connection=local
+
+[all:children]
+web_servers
+control_node
+
+[all:vars]
+ansible_ssh_private_key_file = ~/.ssh/id_rsa
+===================================================
+
+-----------------------------------------------------------------------------------------------
+(ssh ksh001@10.10.8.200 / ssh ksh001@10.10.8.201(서버2) / ssh ksh001@10.10.8.202(서버3) / ssh ksh001@10.10.8.203(서버4) / ssh ksh001@10.10.8.204(서버5))
+
+sudo vi /etc/sudoers (추가)
+=================================
+ksh001 ALL=(ALL) NOPASSWD: ALL
+=================================
+-----------------------------------------------------------------------------------------------
+
+ksh001(서버1)
+ansible all -m ping
+
+vi ~/ansible-lab/update_hosts.yml
+===================================================
+---
+- name: Update /etc/hosts on all nodes
+  hosts: all
+  become: true  # 작업을 root 권한(sudo)으로 실행합니다.
+
+  tasks:
+    - name: Add lab nodes to /etc/hosts
+      blockinfile:
+        path: /etc/hosts  # 수정할 파일 경로
+        marker: "# {mark} ANSIBLE MANAGED BLOCK FOR LAB" # 관리 블록 표시자
+        block: |
+          10.10.8.200 an-ksh001
+          10.10.8.201 an-ksh002
+          10.10.8.202 an-ksh003
+          10.10.8.203 an-ksh004
+          10.10.8.204 an-ksh005
+===================================================
+
+ansible-playbook update_hosts.yml
+
+ansible all -m command -a 'cat /etc/hosts'
+
+
+
+
+기본 명령 실행 ansible all -m shell -a "uptime"
+
+디렉토리 생성 ansible all -m shell -a "mkdir -p /tmp/mydir"
+
+파일 내용 확인 ansible all -m shell -a "cat /etc/hosts"
+
+파일 삭제 ansible all -m shell -a "rm -f /tmp/myfile"
+
+서비스 재시작 ansible all -m shell -a "systemctl restart nginx"
+
+패키지 설치 ansible an-node1 -m ansible.builtin.apt -a 'name=apache2 state=present'
+
+스크립트 실행 ansible all -m shell -a "/path/to/script.sh"
+
+사용자 계정 생성 ansible all -m shell -a "useradd -m johndoe"
+
+환경 변수 설정 ansible all -m shell -a "export MY_VAR='my_value'"
+
+네트워크 설정 변경 ansible all -m shell -a "ifconfig eth0 192.168.1.10 netmask 255.255.255.0"
+
+디스크 사용량 확인 ansible all -m shell -a "df -h"
+
+로그 파일 확인 ansible all -m shell -a "tail -n 100 /var/log/syslog"
+
+퍼미션 변경ansible all -m shell -a "chmod 755 /tmp/mydir"
+
+소유자 변경 ansible all -m shell -a "chown johndoe:johndoe /tmp/mydir"
+
+압축 파일 생성 ansible all -m shell -a "tar czf /tmp/mydir.tar.gz /tmp/mydir"
+
+압축 파일 해제 ansible all -m shell -a "tar xzf /tmp/mydir.tar.gz -C /tmp"
+
+심볼릭 링크 생성 ansible all -m shell -a "ln -s /tmp/mydir /tmp/mydir_link"
+
+프로세스 확인 ansible all -m shell -a "ps aux"
+
+프로세스 종료 ansible all -m shell -a "kill -9 <pid>"
+
+시스템 업데이트 ansible all -m shell -a "apt-get update && apt-get upgrade -y"
+
+로그 파일 압축 ansible all -m shell -a "gzip /var/log/syslog"
+
+디스크 파티션 확인 ansible all -m shell -a "fdisk -l"
+
+시스템 시간 동기화 ansible all -m shell -a "ntpdate pool.ntp.org"
+
+서비스 상태 확인 ansible all -m shell -a "systemctl status nginx"
+
+사용자 패스워드 변경 ansible all -m shell -a "echo 'johndoe:newpassword' | chpasswd"
+
+환경 변수 영구 설정 ansible all -m shell -a "echo 'export MY_VAR=my_value' >> /etc/profile"
+
+SSH 키 생성 ansible all -m shell -a "ssh-keygen -t rsa -b 2048 -f /home/johndoe/.ssh/id_rsa -q -N ''"
+
+원격 디렉토리 동기화 ansible all -m shell -a "rsync -avz /local/dir/ remote_host:/remote/dir/"
+
+MySQL 데이터베이스 백업 ansible all -m shell -a "mysqldump -u root -p'password' mydatabase > /tmp/mydatabase.sql"
+
+시스템 재부팅 예약 ansible all -m shell -a "shutdown -r +10 'System will reboot in 10 minutes'"
+
+네트워크 트래픽 모니터링 ansible all -m shell -a "iftop -t -s 10 -n -N"
+
+방화벽 규칙 추가 ansible all -m shell -a "ufw allow 22/tcp"
+
+디스크 사용량 경고 설정
+ansible all -m shell -a "echo '0 3 * * * root df -h | grep sda1 | awk '{if ($5 > 80) print $0}' | mail -s \"Disk space warning\" admin@example.com' >> /etc/crontab"
+
+포트 열기 확인 ansible all -m shell -a "netstat -tuln | grep :80"
+
+시스템 메트릭 수집
+ansible all -m shell -a "top -b -n 1 > /tmp/top_output.txt"
+
+파일 권한 변경
+ansible all -m shell -a "chmod 644 /etc/hosts"
+
+사용자 로그인 기록 확인
+ansible all -m shell -a "last -a"
+
+서비스 활성화
+ansible all -m shell -a "systemctl enable nginx"
+
+DNS 설정 변경
+ansible all -m shell -a "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
+
+커널 메시지 확인
+ansible all -m shell -a "dmesg | tail -n 20"
+
