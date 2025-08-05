@@ -18,3 +18,9 @@ gh_edit_link: true
 gh_edit_link_text: "GitHub에서 이 페이지 수정하기"
 gh_edit_repository: "kwonjin24/kwonjin24.github.io"
 gh_edit_branch: "main"
+
+just_the_docs:
+  collections:
+    docs:
+      name: "문서 목록"
+      path: "docs"
