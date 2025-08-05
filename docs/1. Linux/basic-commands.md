@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 기본 명령어
-parent: 리눅스 명령어
+parent: 1. Linux
 nav_order: 2
 ---
 
