@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 오늘의 교육
-nav_order: 7
+nav_order: 120
 has_children: true
 ---
 # 오늘의 교육 일지
