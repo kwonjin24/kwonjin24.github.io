@@ -2,7 +2,7 @@
 layout: default
 title: 기본 명령어
 parent: Linux
-nav_order: 21
+nav_order: 2
 ---
 
 # Linux 기본 명령어
