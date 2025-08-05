@@ -1,8 +1,8 @@
 ---
 layout: default
-title: 2025년 7월
+title: 2025년 8월
 parent: 오늘의 교육
-nav_order: 1
+nav_order: 9
 has_children: true
 ---
-# 2025년 7월 교육 기록
+# 2025년 8월 교육 기록
