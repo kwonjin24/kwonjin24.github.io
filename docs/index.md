@@ -1,7 +1,7 @@
 ---
-layout: home
+layout: default
 title: Home
-nav_order: 1
+nav_order: 0
 ---
 
 # kwonjin24의 학습 노트에 오신 것을 환영합니다!
