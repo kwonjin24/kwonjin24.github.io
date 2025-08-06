@@ -5,8 +5,8 @@ parent: 2025년 8월
 nav_order: 4
 has_children: true
 ---
-ㄴ
-# 7월 30일 교육 기록
+
+# 8월 6일 교육 기록
 [1. Ansible Galaxy](1. Ansible Galaxy.md)
 [2. Ansible-Console](2. Ansible-Console.md)
 [3. 인프라 자동화 프로젝트 설명서](3. 인프라 자동화 프로젝트 설명서.md)
