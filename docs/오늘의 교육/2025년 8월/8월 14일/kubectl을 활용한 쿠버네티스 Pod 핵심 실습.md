@@ -205,7 +205,7 @@ Bash
 kubectl logs init-demo-pod
 ```
 
-    출력 예상:
+    출력 예상:  
     ```
     Main App Starting...
     total 0
@@ -276,7 +276,7 @@ Bash
 kubectl get pods -o wide
 ```
 
-    출력 예상:
+    출력 예상:  
     ```
     NAME                               READY   STATUS    ...   NODE
     my-static-nginx-node1.labs.local   1/1     Running   ...   node1.labs.local
@@ -290,9 +290,9 @@ Bash
 # Master Node에서 실행
 kubectl delete pod my-static-nginx-node1.labs.local
 ```
-
-    ✨ 핵심 포인트: API 서버를 통해 Pod를 삭제해도, Worker Node의 kubelet은 지정된 경로(/etc/kubernetes/manifests)에 YAML 파일이 여전히 존재하는 것을 보고 Pod를 즉시 다시 생성합니다. 이것이 Static Pod의 자가 치유 방식입니다.
-
+  
+   ✨ 핵심 포인트: API 서버를 통해 Pod를 삭제해도, Worker Node의 kubelet은 지정된 경로(/etc/kubernetes/manifests)에 YAML 파일이 여전히 존재하는 것을 보고 Pod를 즉시 다시 생성합니다. 이것이 Static Pod의 자가 치유 방식입니다.
+  
 5) 완전히 삭제하기  
 Static Pod를 완전히 삭제하려면, Worker Node로 다시 돌아가 생성했던 YAML 파일을 삭제해야 합니다.
 
