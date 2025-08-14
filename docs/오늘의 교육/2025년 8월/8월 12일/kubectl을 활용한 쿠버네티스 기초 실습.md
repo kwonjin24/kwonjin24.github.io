@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 
+title: kubectl을 활용한 쿠버네티스 기초 실습
 parent: 8월 12일
 nav_order: 2
 ---
@@ -23,9 +23,11 @@ kubectl cluster-info
 Kubernetes control plane is running at https://10.10.8.103:6443
 CoreDNS is running at https://10.10.8.103:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 
-To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+To further debug and diagnose cluster problems, use 'kubectl kubectl을 활용한 쿠버네티스 기초 cluster-info dump'.
 
+```
 kubectl api-resources | more
+```
 
 kubectl get pods
 kubectl get no
@@ -54,6 +56,7 @@ kubectl과 클러스터의 버전을 확인합니다. 이 명령어가 성공적
 
 DOS
 ```
+sudo -i
 kubectl version
 ```
 성공 예시: Client Version과 Server Version 정보가 모두 에러 없이 나타나면 됩니다.
