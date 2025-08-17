@@ -2,7 +2,7 @@
 layout: default
 title: 4주차
 parent: 2025년 8월 
-nav_order: 1
+nav_order: 4
 has_children: true
 ---
 

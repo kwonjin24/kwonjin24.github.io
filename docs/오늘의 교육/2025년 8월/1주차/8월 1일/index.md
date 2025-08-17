@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 1주차
-parent: 8월 1일
+title: 8월 1일
+parent: 1주차
 nav_order: 1
 has_children: true
 ---
