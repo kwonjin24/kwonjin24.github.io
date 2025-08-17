@@ -1,7 +1,7 @@
 ---
 layout: default
 title: kubectl을 활용한 쿠버네티스 핵심 자원 관리 실습
-parent: 3주차
+parent: 8월 13일
 nav_order: 2
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: kubectl을 활용한 쿠버네티스 Pod 핵심 실습
-parent: 3주차
+parent: 8월 14일
 nav_order: 2
 ---
 
