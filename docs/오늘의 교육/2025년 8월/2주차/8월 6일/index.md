@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 8월 6일
-parent: 2025년 8월
+parent: 2주차
 nav_order: 4
 has_children: true
 ---

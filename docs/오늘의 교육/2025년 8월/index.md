@@ -6,4 +6,4 @@ nav_order: 2
 has_children: true
 ---
 
-# 2025년 8월 교육 기록
+# 2025년 8월 주차 교육 기록

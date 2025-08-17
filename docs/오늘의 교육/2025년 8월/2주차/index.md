@@ -1,9 +1,9 @@
 ---
 layout: default
-title: 8월 12일
+title: 2주차
 parent: 2025년 8월
-nav_order: 7
+nav_order: 1
 has_children: true
 ---
 
-# 8월 12일 교육 기록
+# 2025년 8월 2주차 교육 기록
