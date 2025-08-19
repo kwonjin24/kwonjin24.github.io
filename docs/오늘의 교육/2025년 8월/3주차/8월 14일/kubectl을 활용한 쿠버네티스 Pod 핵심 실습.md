@@ -11,7 +11,7 @@ nav_order: 2
 
 ## 파드 개념 및 사용하기
 
-# 🚀 쿠버네티스 Pod 핵심 개념 실습 가이드 (개선 최종본)
+# 🚀 쿠버네티스 Pod 핵심 개념 실습 가이드
 이 가이드는 쿠버네티스에서 가장 기본적이면서도 중요한 단위인 Pod에 대한 핵심 개념들을 직접 실습하며 익힐 수 있도록 구성되었습니다.
 
 ## 실습 1: Pod 생성과 관리의 기본
@@ -209,7 +209,7 @@ kubectl logs init-demo-pod
     ```
     Main App Starting...
     total 0
-    -rw-r--r--    1 root     root             0 Aug 14 05:30 hello.txt
+    -rw-r--r-- 1 root root 0 Aug 14 05:30 hello.txt
     ```
 
 4) 실습 마무리
